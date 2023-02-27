@@ -17,19 +17,24 @@ function createBoard(amount){
     const newDiv = document.createElement("div");
     newDiv.className = "square";
     container.appendChild(newDiv);
-    reDraw();
+    reDraw("purple");
     };
     
     }
 
-function reDraw(){
+function reDraw(newColor){
 const overSquare = document.querySelectorAll(".square");
 for (let i =0; i < overSquare.length; i++){
 overSquare[i].addEventListener("mouseover", e =>{
-  overSquare[i].style.backgroundColor ="purple";
+  overSquare[i].style.backgroundColor = newColor;
 })
 }
 }
+const clear = document.querySelector("button");
+clear.addEventListener("click", () => createBoard(slider.value))
+
+const myColor = document.getElementById("myColor");
+myColor.addEventListener("input", () => reDraw(myColor.value));
 
 
 
