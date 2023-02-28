@@ -1,14 +1,22 @@
 // create grid
 const slider = document.getElementById("range");
-createBoard(slider.value);
+document.getElementById("amount").innerHTML = slider.value;
+
+const clear = document.getElementById("reset");
+clear.addEventListener("click", () => createBoard(slider.value, myColor.value))
+
+
+const myColor = document.getElementById("myColor");
+myColor.addEventListener("input", () => reDraw(myColor.value));
 
 slider.addEventListener("input", (e) =>{
-    console.log(slider.value);
     document.getElementById("amount").innerHTML = slider.value;
-    createBoard(slider.value);
+    createBoard(slider.value, myColor.value);
 })
 
-function createBoard(amount){
+
+
+function createBoard(amount, color){
     const container = document.getElementById("container");
     container.innerHTML ="";
     container.style.gridTemplateColumns = `repeat(${amount}, 1fr)`;
@@ -17,10 +25,11 @@ function createBoard(amount){
     const newDiv = document.createElement("div");
     newDiv.className = "square";
     container.appendChild(newDiv);
-    reDraw("purple");
+    reDraw(color);
     };
     
     }
+
 
 function reDraw(newColor){
 const overSquare = document.querySelectorAll(".square");
@@ -30,12 +39,10 @@ overSquare[i].addEventListener("mouseover", e =>{
 })
 }
 }
-const clear = document.querySelector("button");
-clear.addEventListener("click", () => createBoard(slider.value))
 
-const myColor = document.getElementById("myColor");
-myColor.addEventListener("input", () => reDraw(myColor.value));
 
+
+createBoard(slider.value, myColor.value);
 
 
 

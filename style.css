@@ -1,12 +1,20 @@
-
+body{
+    background-color: rgb(238, 235, 239);
+    font-family: 'Exo 2', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 h1{
   text-align: center;
+  font-weight: 600;
 }
 
 #container{
     width: 500px;
-    height: 500px; 
+    min-height: 500px; 
     margin: 0 auto; 
     background: #eee;
     display: grid;
@@ -16,12 +24,27 @@ h1{
 
 .square {
     min-height: 22px; 
-    background-color: rgb(244, 62, 247);
-    border:  1px solid rgb(251, 169, 251);
+    min-width: 22px;
+    background-color: #eee;
+    border:  1px solid #d7d5d5;
 }
 
 #changes{
     display:flex; 
-    justify-content: center;
-    margin-top: 50px; 
+    justify-content: space-evenly;
+    align-content: center;
+    width: 500px;
+    margin-top: 33px;
+
+}
+
+
+
+#amount{
+    text-align: center;
+}
+
+button{
+    background-color: #949494;
+    color: #eee
 }
